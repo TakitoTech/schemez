@@ -6,7 +6,7 @@ This library allows users to create JSON schemas and respective TypeScript types
 
 Heavily based on seemingly abandoned project [jsonschema-definer](https://github.com/Sujimoshi/jsonschema-definer).
 
-Added features like "pick", "omit", and etc, improved code and typescript support, and removed validator to avoid dependency (JSON Schema is public standard).
+Added features like "pick", "omit", and etc, improved code and typescript support, and removed validator to avoid dependency.
 
 ## 🔥 Install
 
@@ -53,7 +53,7 @@ Give a ⭐️ if this project helped you!
 ## 📚 Documentation
 
 Full documentation available [here](https://takitotech.github.io/schemez/)
-### Main exported variable S: <a href="https://takitotech.github.io/schemez/classes/schemafactory.html">SchemaFactory</a> extends <a href="https://takitotech.github.io/schemez/classes/baseschema.html">BaseSchema</a>
+### Main exported variable s: <a href="https://takitotech.github.io/schemez/classes/schemafactory.html">SchemaFactory</a> extends <a href="https://takitotech.github.io/schemez/classes/baseschema.html">BaseSchema</a>
 
 <table>
     <tr>
@@ -196,13 +196,13 @@ Full documentation available [here](https://takitotech.github.io/schemez/)
     </tr>
     <tr>
         <td>s.optional(): <a href="https://takitotech.github.io/schemez/classes/baseschema.html">BaseSchema</a></td>
-        <td>Sets field as optional</td>
-				<td>? (aka optional operator)</td>
+        <td>Optional (similar to optional (?) typescript type and NOT partial type)</td>
+				<td>T | undefined</td>
         <td>{ "required": [ ... ] }</td>
     </tr><tr>
         <td>s.optionalAll(): <a href="https://takitotech.github.io/schemez/classes/objectschema.html">ObjectSchema</a></td>
         <td>Sets object and all object fields (recursively) as optional</td>
-				<td>{ ...? }</td>
+				<td>{ ...? } (aka. optional fields)</td>
         <td>{ "type": "object", properties: T, additionalProperties: false, "required": [] } }</td>
     </tr>
 </table>
