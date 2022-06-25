@@ -17,7 +17,8 @@
 	],
 	"scripts": {
 		"test": "jest",
-		"testSpecific": "pnpm test -- -t 'ObjectSchema ObjectSchema.prototype.get'"
+		"testSpecific": "pnpm test -- -t 'ObjectSchema ObjectSchema.prototype.get'",
+		"typedoc": "typedoc"
 	},
 	"devDependencies": {
 		"@types/eslint": "^8.4.3",
@@ -33,6 +34,7 @@
 		"prettier": "^2.7.0",
 		"ts-jest": "^28.0.5",
 		"ts-node": "^10.8.1",
+		"typedoc": "^0.22.18",
 		"typescript": "^4.7.3"
 	},
 	"dependencies": {
