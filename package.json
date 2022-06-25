@@ -18,9 +18,7 @@
 	"scripts": {
 		"test": "jest",
 		"testSpecific": "pnpm test -- -t 'ObjectSchema ObjectSchema.prototype.get'",
-		"generate-docs": "typedoc",
-		"upload-docs-init": "git checkout --orphan gh-pages && git add -A && git commit -m 'docs' && git push origin gh-pages && git checkout main",
-		"upload-docs": "git checkout --orphan gh-pages && git add -A && git commit -m 'docs' && git push origin gh-pages && git checkout main"
+		"generate-docs": "typedoc"
 	},
 	"devDependencies": {
 		"@types/eslint": "^8.4.3",
