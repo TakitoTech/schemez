@@ -202,7 +202,9 @@ export default class ObjectSchema<
 	}
 
 	/**
-	 * Make schema optional in {ObjectSchema}
+	 * Make schema optional in {ObjectSchema}. "Optional" is similar to typescript's "partial"
+	 * function but not the same. "Partial" sets all properties within an typescript object
+	 * optional. "Optional" instead makes the object itself optional.
 	 *
 	 * @returns {ObjectSchema}
 	 */
