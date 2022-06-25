@@ -1,0 +1,47 @@
+import S from "./";
+import { Validate } from "./_TestHelper";
+import ArraySchema from "./array";
+
+describe("ArraySchema", () => {
+	it("ArraySchema.prototype.optional", () => {
+		const schema = new ArraySchema();
+		expect(schema.isRequired).toEqual(true);
+		expect(schema.optional().isRequired).toEqual(false);
+	});
+	it.skip("ArraySchema.prototype.additionalItems", () => {
+		// warning: strict mode: "items" is 2-tuple, but minItems or maxItems/additionalItems are not specified or different at path "#"
+		// warnings are for all ArraySchema.prototype.additionalItems tests
+		const schema = new ArraySchema().items([S.string(), S.number()]);
+		expect(Validate(schema, ["some", 0, 0])[0]).toEqual(true);
+		expect(Validate(schema.additionalItems(false), ["some", 0, 0])[0]).toEqual(
+			false,
+		);
+		expect(
+			Validate(schema.additionalItems(S.string()), ["some", 0, "any"])[0],
+		).toEqual(true);
+	});
+
+	it("ArraySchema.prototype.contains", () => {
+		const schema = new ArraySchema().contains(S.const("some"));
+		expect(Validate(schema, ["some", 0, 0])[0]).toEqual(true);
+		expect(Validate(schema, ["any", 0, 0])[0]).toEqual(false);
+	});
+
+	it("ArraySchema.prototype.minItems", () => {
+		const schema = new ArraySchema().minItems(1);
+		expect(Validate(schema, ["some", 0, 0])[0]).toEqual(true);
+		expect(Validate(schema, [])[0]).toEqual(false);
+	});
+
+	it("ArraySchema.prototype.maxItems", () => {
+		const schema = new ArraySchema().maxItems(1);
+		expect(Validate(schema, ["some", 0, 0])[0]).toEqual(false);
+		expect(Validate(schema, [])[0]).toEqual(true);
+	});
+
+	it("ArraySchema.prototype.unique", () => {
+		const schema = new ArraySchema().uniqueItems();
+		expect(Validate(schema, ["some", 0])[0]).toEqual(true);
+		expect(Validate(schema, [1, 1])[0]).toEqual(false);
+	});
+});

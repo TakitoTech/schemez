@@ -1,0 +1,32 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"declaration": true,
+		"pretty": true,
+		"noEmitOnError": true,
+		"strict": true,
+		"resolveJsonModule": true,
+		"removeComments": true,
+		"newLine": "lf",
+		"noFallthroughCasesInSwitch": true,
+		"useDefineForClassFields": true,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+		"outDir": "dist",
+		"target": "ESNext",
+		"lib": [
+			"ESNext"
+		],
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"strictPropertyInitialization": false,
+		// disable check since eslint is handling it
+		"noUnusedLocals": false,
+	},
+	"include": [
+		"src/**/*.ts"
+	]
+}
