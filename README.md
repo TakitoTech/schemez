@@ -199,9 +199,16 @@ Full documentation available [here](https://takitotech.github.io/schemez/)
         <td>Optional (similar to optional (?) typescript type and NOT partial type)</td>
 				<td>T | undefined</td>
         <td>{ "required": [ ... ] }</td>
-    </tr><tr>
-        <td>s.optionalAll(): <a href="https://takitotech.github.io/schemez/classes/objectschema.html">ObjectSchema</a></td>
-        <td>Sets object and all object fields (recursively) as optional</td>
+    </tr>
+		<tr>
+        <td>s.partial(): <a href="https://takitotech.github.io/schemez/classes/objectschema.html">ObjectSchema</a></td>
+        <td>Sets object's fields as optional; Does NOT set object itself as optional</td>
+				<td>{ ...? } (aka. optional fields)</td>
+        <td>{ "type": "object", properties: T, additionalProperties: false, "required": [] } }</td>
+    </tr>
+		<tr>
+        <td>s.partialRecursive(): <a href="https://takitotech.github.io/schemez/classes/objectschema.html">ObjectSchema</a></td>
+        <td>Sets object's fields (recursively) as optional; Does NOT set object itself as optional</td>
 				<td>{ ...? } (aka. optional fields)</td>
         <td>{ "type": "object", properties: T, additionalProperties: false, "required": [] } }</td>
     </tr>

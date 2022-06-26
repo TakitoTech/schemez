@@ -202,8 +202,8 @@ export default class ObjectSchema<
 	}
 
 	/**
-	 * Make schema optional in {ObjectSchema}. "Optional" is similar to typescript's "partial"
-	 * function but not the same. "Partial" sets all properties within an typescript object
+	 * Make schema optional in {ObjectSchema}. "Optional" is NOT the same as typescript's "partial".
+	 * "Partial" sets all properties within an typescript object
 	 * optional. "Optional" instead makes the object itself optional.
 	 *
 	 * @returns {ObjectSchema}
@@ -213,19 +213,33 @@ export default class ObjectSchema<
 	}
 
 	/**
+	 * Return new ObjectSchema with removed required fields
+	 *
+	 * @returns {ObjectSchema}
+	 */
+	partial(): ObjectSchema<Partial<T>, R> {
+		const {
+			plain: { required, ...plain }, // eslint-disable-line @typescript-eslint/no-unused-vars
+		} = this;
+		return Object.assign(Object.create(this.constructor.prototype), {
+			...this,
+			plain,
+		});
+	}
+	/**
 	 * Return new ObjectSchema with removed required fields (recursively)
 	 *
 	 * @returns {ObjectSchema}
 	 */
-	optionalAll(): ObjectSchema<PartialRecursive<T>, R> {
-		const plain = (function optionalAll(schema: any) {
+	partialRecurvise(): ObjectSchema<PartialRecursive<T>, R> {
+		const plain = (function partialRecurvise(schema: any) {
 			for (const key in schema.properties || {}) {
 				if (schema.properties[key].type === "object") {
 					schema = {
 						...schema,
 						properties: {
 							...schema.properties,
-							[key]: optionalAll({ ...schema.properties[key] }),
+							[key]: partialRecurvise({ ...schema.properties[key] }),
 						},
 					};
 				}

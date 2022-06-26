@@ -165,29 +165,49 @@ describe("ObjectSchema", () => {
 			false,
 		);
 	});
-
 	it("ObjectSchema.prototype.optional", () => {
 		const schema = s
 			.shape({
-				prop1: s.shape({ str: s.string(), obj: s.object() }),
-				prop2: s.shape({ str: s.string(), obj: s.object() }).optional(),
+				prop1: s.shape({ str: s.string() }),
+				prop2: s.shape({ str: s.string() }).optional(),
 			})
 			.optional();
+		type _Check = Expect<
+			typeof schema.type,
+			{ prop1: { str: string }; prop2?: { str: string } }
+		>;
 		expect(Validate(schema, undefined as any)[0]).toEqual(false);
-		expect(Validate(schema, { prop1: { str: "hello", obj: {} } })[0]).toEqual(
-			true,
-		);
+		expect(Validate(schema, { prop1: { str: "hello" } })[0]).toEqual(true);
 	});
-
-	it("ObjectSchema.prototype.optionalAll", () => {
+	it("ObjectSchema.prototype.partial", () => {
 		const schema = s
 			.shape({
-				prop1: s.shape({ str: s.string(), obj: s.object() }),
-				prop2: s.shape({ str: s.string(), obj: s.object() }).optional(),
+				prop1: s.shape({ str: s.string() }),
+				prop2: s.shape({ str: s.string() }).optional(),
 			})
-			.optionalAll();
+			.partial();
+		type _Check = Expect<
+			typeof schema.type,
+			{ prop1?: { str: string }; prop2?: { str: string } }
+		>;
 		expect(Validate(schema, {})[0]).toEqual(true);
-		expect(Validate(schema, { prop1: {} })[0]).toEqual(true);
+		expect(Validate(schema, { prop1: { str: "hello" } })[0]).toEqual(true);
+		expect(Validate(schema, { prop2: {} } as any)[0]).toEqual(false);
+	});
+	it("ObjectSchema.prototype.partialRecursive", () => {
+		const schema = s
+			.shape({
+				prop1: s.shape({ str: s.string() }),
+				prop2: s.shape({ str: s.string() }).optional(),
+			})
+			.partialRecurvise();
+		type _Check = Expect<
+			typeof schema.type,
+			{ prop1?: { str?: string }; prop2?: { str?: string } }
+		>;
+		expect(Validate(schema, {})[0]).toEqual(true);
+		expect(Validate(schema, { prop1: { str: "hello" } })[0]).toEqual(true);
+		expect(Validate(schema, { prop2: {} as any })[0]).toEqual(true);
 	});
 	it("ObjectSchema.prototype.omit", () => {
 		const schema = s
