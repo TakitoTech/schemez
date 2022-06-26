@@ -14,7 +14,7 @@ export type Optional<T extends Record<string, unknown>> = O.Optional<
 export type PartialRecursive<T> = {
 	[P in keyof T]?: T[P] extends (infer U)[]
 		? PartialRecursive<U>[]
-		: T[P] extends object
+		: T[P] extends object | undefined
 		? PartialRecursive<T[P]>
 		: T[P];
 };
