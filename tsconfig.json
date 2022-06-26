@@ -2,7 +2,6 @@
 	"compilerOptions": {
 		"module": "commonjs",
 		"moduleResolution": "node",
-		"declaration": true,
 		"pretty": true,
 		"noEmitOnError": true,
 		"strict": true,
@@ -13,7 +12,6 @@
 		"useDefineForClassFields": true,
 		"forceConsistentCasingInFileNames": true,
 		"skipLibCheck": true,
-		"outDir": "dist",
 		"target": "ESNext",
 		"lib": [
 			"ESNext"
@@ -23,10 +21,17 @@
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
 		"strictPropertyInitialization": false,
+		// output
+		"outDir": "dist",
+		"sourceMap": true,
+		"declaration": true,
 		// disable check since eslint is handling it
 		"noUnusedLocals": false,
 	},
 	"include": [
 		"src/**/*.ts"
+	],
+	"exclude": [
+		"src/**/*.test.ts"
 	]
 }
