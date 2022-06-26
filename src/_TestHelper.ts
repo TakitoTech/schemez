@@ -35,4 +35,12 @@ export function Validate<T extends Schema>(
 		});
 	return result;
 }
-export type Expect<T extends E, E> = T extends E ? true : false;
+// export type Expect<T extends E, E> = T extends E ? true : false;
+export type Expect<T extends E, E> = T extends E
+	? E extends T
+		? true
+		: false
+	: false;
+
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export const IsTrue = <_A extends true>() => {};
