@@ -53,7 +53,7 @@ Give a ⭐️ if this project helped you!
 ## 📚 Documentation
 
 Full documentation available [here](https://takitotech.github.io/schemez/)
-### Main exported variable s: <a href="https://takitotech.github.io/schemez/classes/schemafactory.html">SchemaFactory</a> extends <a href="https://takitotech.github.io/schemez/classes/baseschema.html">BaseSchema</a>
+### Main exported variable s: <a href="https://takitotech.github.io/schemez/classes/schemafactory.html">SchemaFactory</a> extends <a href="https://takitotech.github.io/schemez/classes/baseschema.html">BaseSchema</a>. Examples found in test files.
 
 <table>
     <tr>
@@ -208,7 +208,7 @@ Full documentation available [here](https://takitotech.github.io/schemez/)
     </tr>
 		<tr>
         <td>s.partialRecursive(): <a href="https://takitotech.github.io/schemez/classes/objectschema.html">ObjectSchema</a></td>
-        <td>Sets object's fields (recursively) as optional; Does NOT set object itself as optional</td>
+        <td>Sets object's fields and fields' fields (recursively) as optional; Does NOT set object itself as optional</td>
 				<td>{ ...? } (aka. optional fields)</td>
         <td>{ "type": "object", properties: T, additionalProperties: false, "required": [] } }</td>
     </tr>
