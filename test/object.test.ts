@@ -1,4 +1,4 @@
-import s from "./";
+import s from "../src";
 import { Expect, IsTrue, Validate } from "./_TestHelper";
 
 describe("ObjectSchema", () => {
@@ -142,11 +142,24 @@ describe("ObjectSchema", () => {
 			.set("prop1", s.string().optional())
 			.set("prop2", s.string().optional())
 			.requiredProperties("prop1");
-		IsTrue<Expect<typeof schema.type, { prop1: string; prop2?: string }>>();
+
+		const _test: typeof schema.type = {
+			prop1: "string",
+			// prop2: "string",
+		};
+		IsTrue<
+			Expect<
+				typeof schema.type,
+				{ prop1: string; prop2?: string; prop3?: string } // #TODO: prop3 should have typescript error
+			>
+		>();
 		expect(Validate(schema, { prop1: "hello" })[0]).toEqual(true);
-		expect(Validate(schema, { prop1: "hello", prop2: "world" })[0]).toEqual(
-			true,
-		);
+		expect(
+			Validate(schema, { prop1: "hello", prop2: "world", prop3: "h" })[0],
+		).toEqual(true);
+		expect(
+			Validate(schema, { prop1: "hello", prop2: "world", prop3: "h" })[0], // #TODO: should have typescript error
+		).toEqual(false);
 		expect(Validate(schema, {} as any)[0]).toEqual(false);
 		expect(Validate(schema, { prop2: "world" } as any)[0]).toEqual(false);
 	});
@@ -160,7 +173,12 @@ describe("ObjectSchema", () => {
 			schemaR: schema1.required(),
 			schemaO: schema1,
 		});
-		IsTrue<Expect<typeof schema.type, { schemaR: { prop1: string } }>>();
+		IsTrue<
+			Expect<
+				typeof schema.type,
+				{ schemaR: { prop1: string }; schemaO?: { prop1: string } }
+			>
+		>();
 		expect(Validate(schema, { schemaR: { prop1: "hello" } })[0]).toEqual(true);
 		expect(Validate(schema, {} as any)[0]).toEqual(false);
 		expect(Validate(schema, { schemaO: { prop1: "world" } } as any)[0]).toEqual(

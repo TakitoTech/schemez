@@ -1,15 +1,15 @@
 // import AJV, { ErrorObject } from "ajv";
 import { U } from "ts-toolbelt";
-import { Schema } from ".";
+import { Schema, UndefinedProperties } from ".";
 
-export type Any =
-	| boolean
-	| null
-	| string
-	| number
-	| Record<string, any>
-	| Array<any>
-	| undefined;
+export type Any = any;
+// | boolean
+// | null
+// | string
+// | number
+// | Record<string, any>
+// | Array<any>
+// | undefined;
 
 export interface BaseJsonSchema {
 	[key: string]: any;
@@ -225,7 +225,9 @@ export default class BaseSchema<
 	 * @param value
 	 * @returns {this}
 	 */
-	const<P extends T>(value: P): BaseSchema<P, R> {
+	const<P extends string | number>(
+		value: P,
+	): BaseSchema<UndefinedProperties<{ [p in P]: undefined }>, R> {
 		return this.copyWith({ plain: { const: value } }) as any;
 	}
 

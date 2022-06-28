@@ -1,6 +1,6 @@
-import S from "./";
+import S from "../src/";
+import ArraySchema from "../src/array";
 import { Validate } from "./_TestHelper";
-import ArraySchema from "./array";
 
 describe("ArraySchema", () => {
 	it("ArraySchema.prototype.optional", () => {

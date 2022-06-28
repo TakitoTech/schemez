@@ -38,7 +38,7 @@ export default class ObjectSchema<
 	 * @param {ObjectSchema} schema
 	 * @returns {ObjectSchema}
 	 */
-	set<K extends string, S extends BaseSchema<any, boolean>>(
+	set<K extends string | number, S extends BaseSchema<any, boolean>>(
 		name: K,
 		schema: S,
 	): ObjectSchema<T & ConvertUndefinedToOptional<{ [k in K]: S["otype"] }>, R> {

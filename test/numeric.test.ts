@@ -1,5 +1,5 @@
+import NumericSchema from "../src/numeric";
 import { Validate } from "./_TestHelper";
-import NumericSchema from "./numeric";
 
 describe("NumericSchema", () => {
 	it("NumericSchema.constructor(integer)", () => {

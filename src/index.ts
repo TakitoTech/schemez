@@ -18,7 +18,7 @@ export type PartialRecursive<T> = {
 		? PartialRecursive<T[P]>
 		: T[P];
 };
-type UndefinedProperties<T> = {
+export type UndefinedProperties<T> = {
 	[P in keyof T]-?: undefined extends T[P] ? P : never;
 }[keyof T];
 export type ConvertUndefinedToOptional<T> = Partial<

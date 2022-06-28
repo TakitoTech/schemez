@@ -1,6 +1,6 @@
 import AJV from "ajv";
 import AddAJVFormats from "ajv-formats";
-import { Schema } from ".";
+import { Schema } from "../src";
 
 const ajv = new AJV({
 	// coerceTypes: true, // converts int to string and vice versa
@@ -36,11 +36,18 @@ export function Validate<T extends Schema>(
 	return result;
 }
 // export type Expect<T extends E, E> = T extends E ? true : false;
-export type Expect<T extends E, E> = T extends E
-	? E extends T
-		? true
-		: false
-	: false;
-
+export type Expect1<A1 extends A2, A2> = A1 extends A2
+	? A2 extends A1
+		? 1
+		: 0
+	: 0;
+export type Expect2<A1, A2> = (<A>() => A extends A2 ? 1 : 0) extends <
+	A,
+>() => A extends A1 ? 1 : 0
+	? 1
+	: 0;
+export type Expect<A1 extends A2, A2> = Expect1<A1, A2> extends 1
+	? 1
+	: Expect2<A1, A2>;
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-export const IsTrue = <_A extends true>() => {};
+export const IsTrue = <_A extends 1>() => {};
