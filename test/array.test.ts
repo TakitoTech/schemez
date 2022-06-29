@@ -3,11 +3,8 @@ import ArraySchema from "../src/array";
 import { Validate } from "./_TestHelper";
 
 describe("ArraySchema", () => {
-	it("ArraySchema.prototype.optional", () => {
-		const schema = new ArraySchema();
-		expect(schema.isRequired).toEqual(true);
-		expect(schema.optional().isRequired).toEqual(false);
-	});
+	it.todo("ArraySchema.prototype.items()");
+
 	it.skip("ArraySchema.prototype.additionalItems", () => {
 		// warning: strict mode: "items" is 2-tuple, but minItems or maxItems/additionalItems are not specified or different at path "#"
 		// warnings are for all ArraySchema.prototype.additionalItems tests
@@ -43,5 +40,11 @@ describe("ArraySchema", () => {
 		const schema = new ArraySchema().uniqueItems();
 		expect(Validate(schema, ["some", 0])[0]).toEqual(true);
 		expect(Validate(schema, [1, 1])[0]).toEqual(false);
+	});
+
+	it("ArraySchema.prototype.optional", () => {
+		const schema = new ArraySchema();
+		expect(schema.isRequired).toEqual(true);
+		expect(schema.optional().isRequired).toEqual(false);
 	});
 });
