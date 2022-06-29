@@ -8,7 +8,7 @@
 		"src"
 	],
 	"engines": {
-		"node": ">=10"
+		"node": ">=12"
 	},
 	"scripts": {
 		"start": "tsdx watch",
@@ -47,6 +47,29 @@
 			"limit": "10 KB"
 		}
 	],
+	"release": {
+		"branches": [
+			"+([0-9])?(.{+([0-9]),x}).x",
+			"main",
+			"next",
+			"next-major",
+			{
+				"name": "beta",
+				"prerelease": true
+			},
+			{
+				"name": "alpha",
+				"prerelease": true
+			}
+		]
+	},
+	"jest": {
+		"globals": {
+			"ts-jest": {
+				"packageJson": "package.json"
+			}
+		}
+	},
 	"devDependencies": {
 		"@size-limit/preset-small-lib": "^7.0.8",
 		"@types/jest": "^28.1.3",
