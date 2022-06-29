@@ -93,7 +93,6 @@ describe("root instance", () => {
 
 	it("Schema.anyOf()", () => {
 		const schema = s.anyOf(s.string(), s.number());
-		type _B = Expect<typeof schema.type, string | number>;
 		IsTrue<Expect<typeof schema.type, string | number>>();
 		expect(Validate(schema, "some")[0]).toEqual(true);
 		expect(Validate(schema, 999)[0]).toEqual(true);
@@ -101,7 +100,6 @@ describe("root instance", () => {
 
 	it("Schema.oneOf()", () => {
 		const schema = s.oneOf(s.string(), s.number());
-
 		IsTrue<Expect<typeof schema.type, string | number>>();
 		expect(Validate(schema, "some")[0]).toEqual(true);
 		expect(Validate(schema, 999)[0]).toEqual(true);
