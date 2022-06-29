@@ -141,12 +141,9 @@ describe("ObjectSchema", () => {
 			.object()
 			.set("prop1", s.string().optional())
 			.set("prop2", s.string().optional())
+			.additionalProperties(false)
 			.requiredProperties("prop1");
-
-		const _test: typeof schema.type = {
-			prop1: "string",
-			// prop2: "string",
-		};
+		console.warn("Fix types for additionalProperties and requiredProperties");
 		IsTrue<
 			Expect<
 				typeof schema.type,
@@ -154,15 +151,16 @@ describe("ObjectSchema", () => {
 			>
 		>();
 		expect(Validate(schema, { prop1: "hello" })[0]).toEqual(true);
-		expect(
-			Validate(schema, { prop1: "hello", prop2: "world", prop3: "h" })[0],
-		).toEqual(true);
+		expect(Validate(schema, { prop1: "hello", prop2: "world" })[0]).toEqual(
+			true,
+		);
 		expect(
 			Validate(schema, { prop1: "hello", prop2: "world", prop3: "h" })[0], // #TODO: should have typescript error
 		).toEqual(false);
 		expect(Validate(schema, {} as any)[0]).toEqual(false);
 		expect(Validate(schema, { prop2: "world" } as any)[0]).toEqual(false);
 	});
+
 	it("ObjectSchema.prototype.required", () => {
 		const schema1 = s
 			.shape({
@@ -185,6 +183,7 @@ describe("ObjectSchema", () => {
 			false,
 		);
 	});
+
 	it("ObjectSchema.prototype.optional", () => {
 		const schema = s
 			.shape({
@@ -201,6 +200,7 @@ describe("ObjectSchema", () => {
 		expect(Validate(schema, undefined as any)[0]).toEqual(false);
 		expect(Validate(schema, { prop1: { str: "hello" } })[0]).toEqual(true);
 	});
+
 	it("ObjectSchema.prototype.partial", () => {
 		const schema = s
 			.shape({
@@ -218,6 +218,7 @@ describe("ObjectSchema", () => {
 		expect(Validate(schema, { prop1: { str: "hello" } })[0]).toEqual(true);
 		expect(Validate(schema, { prop2: {} } as any)[0]).toEqual(false);
 	});
+
 	it("ObjectSchema.prototype.partialRecursive", () => {
 		const schema = s
 			.shape({
@@ -235,6 +236,7 @@ describe("ObjectSchema", () => {
 		expect(Validate(schema, { prop1: { str: "hello" } })[0]).toEqual(true);
 		expect(Validate(schema, { prop2: {} })[0]).toEqual(true);
 	});
+
 	it("ObjectSchema.prototype.omit", () => {
 		const schema = s
 			.shape({
@@ -245,6 +247,7 @@ describe("ObjectSchema", () => {
 		expect(Validate(schema, {})[0]).toEqual(true);
 		expect(Validate(schema, { prop1: {} } as any)[0]).toEqual(false);
 	});
+
 	it("ObjectSchema.prototype.pick", () => {
 		const schema = s
 			.shape({
@@ -255,6 +258,7 @@ describe("ObjectSchema", () => {
 		expect(Validate(schema, { prop1: "hello" })[0]).toEqual(true);
 		expect(Validate(schema, { prop2: {} } as any)[0]).toEqual(false);
 	});
+
 	it("ObjectSchema.prototype.and", () => {
 		const schema1 = s.shape({
 			prop1: s.string(),
@@ -271,6 +275,7 @@ describe("ObjectSchema", () => {
 			Validate(schema, { prop1: "hello", prop4: "world" } as any)[0],
 		).toEqual(false);
 	});
+
 	it("ObjectSchema.prototype.andShape", () => {
 		const schema = s
 			.shape({
@@ -287,6 +292,8 @@ describe("ObjectSchema", () => {
 			Validate(schema, { prop1: "hello", prop4: "world" } as any)[0],
 		).toEqual(false);
 	});
+
 	it.todo("ObjectSchema.prototype.or");
+
 	it.todo("ObjectSchema.prototype.orShape");
 });
