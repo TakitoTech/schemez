@@ -21,7 +21,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install deps and build (with cache)
-        uses: ./.github/actions/pnpm-install
+        uses: TakitoTech/action-pnpm-install
 
       - name: Lint
         run: pnpm lint
