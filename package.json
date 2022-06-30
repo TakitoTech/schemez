@@ -1,6 +1,6 @@
 {
 	"name": "schemez",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"author": "TakitoTech",
 	"license": "MIT",
 	"packageManager": "pnpm@7.3.0",
