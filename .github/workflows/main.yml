@@ -6,7 +6,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ['12.x']
+        node: ['12']
         # node: ['10.x', '12.x', '14.x']
         os: [ubuntu-latest]
         # os: [ubuntu-latest, windows-latest, macOS-latest]
@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+
       - name: Install deps and build (with cache)
         # uses: TakitoTech/action-pnpm-install@main
         - name: Install pnpm
