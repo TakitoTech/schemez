@@ -11,9 +11,9 @@ Added features like "pick", "omit", and etc, improved code and typescript suppor
 ## 🔥 Install
 
 ```sh
-#TODO: npm i -D schemez
-#TODO: yarn add -D schemez
-#TODO: pnpm i -D schemez
+npm i -D schemez
+yarn add -D schemez
+pnpm i -D schemez
 ```
 
 ## 👌 Usage
@@ -221,7 +221,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 ### Run tests
 
 ```sh
-npm run test
+pnpm test
 ``` 
 
 ## Author
