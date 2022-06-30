@@ -51,44 +51,6 @@ jobs:
           file: ./coverage/clover.xml # optional
       - name: Build
         run: pnpm build
-  publish-pnpm:
-    needs: build
-    strategy:
-      matrix:
-        node: ['14']
-        # node: ['10.x', '12.x', '14.x']
-        os: [ubuntu-latest]
-        # os: [ubuntu-latest, windows-latest, macOS-latest]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-      - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          # registry-url: https://registry.npmjs.org/
-			- name: Install pnpm
-        uses: pnpm/action-setup@v2.2.2
-        # with:
-        #   version: 7.1.0 # uses version set in package.json > packageManager
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-        shell: bash
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile # verifies lockfile matches package.json
-        shell: bash
-      - name: Build
-        run: pnpm build
       # https://github.com/cycjimmy/semantic-release-action
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v3
