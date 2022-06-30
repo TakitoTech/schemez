@@ -1,22 +1,19 @@
 name: CI
 on: [push]
+env:
+  node: ['14']
+  os: [ubuntu-latest]
 jobs:
   build:
-    name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node: ['14']
-        # node: ['10.x', '12.x', '14.x']
-        os: [ubuntu-latest]
-        # os: [ubuntu-latest, windows-latest, macOS-latest]
+    name: Build, lint, and test on Node ${{ env.node }} and ${{ env.os }}
+    runs-on: ${{ env.os }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      - name: Use Node ${{ matrix.node }}
+      - name: Use Node ${{ env.node }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ env.node }}
       # - name: Install deps and build (with cache) # replaced with below script
         # uses: TakitoTech/action-pnpm-install@main
       - name: Install pnpm
