@@ -19,7 +19,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
       - name: Install deps and build (with cache)
         # uses: TakitoTech/action-pnpm-install@main
         - name: Install pnpm
