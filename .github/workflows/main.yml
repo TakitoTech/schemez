@@ -1,4 +1,4 @@
-name: CI
+name: build, lint, test, and publish
 on: [push]
 jobs:
   build:
@@ -51,3 +51,49 @@ jobs:
           file: ./coverage/clover.xml # optional
       - name: Build
         run: pnpm build
+publish-pnpm:
+    needs: build
+    strategy:
+      matrix:
+        node: ['14']
+        # node: ['10.x', '12.x', '14.x']
+        os: [ubuntu-latest]
+        # os: [ubuntu-latest, windows-latest, macOS-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          # registry-url: https://registry.npmjs.org/
+      - name: Install Dependencies
+        run: pnpm ci # verifies lockfile matches package.json
+      - name: Build
+        run: pnpm build
+      # https://github.com/cycjimmy/semantic-release-action
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v3
+        id: semantic
+        with:
+          # Recommended to specify specifying version range to reduce version errors
+          # https://www.npmjs.com/package/semantic-release
+          semantic_version: 19.0.3
+          branch: main
+          # https://www.npmjs.com/package/@semantic-release/git
+          # https://www.npmjs.com/package/@semantic-release/changelog
+          extra_plugins: |
+            @semantic-release/git@10.0.1
+            @semantic-release/changelog@6.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # no need to set since its provided by github automatically
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Push updates to branch for major version
+        # if there is a new version published, let's say v1.2.3
+        # then this step will update branch "v1" to this commit
+        # https://github.com/cypress-io/github-action/branches
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: 'git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:refs/heads/v${{steps.semantic.outputs.new_release_major_version}}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
