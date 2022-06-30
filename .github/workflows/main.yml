@@ -69,7 +69,8 @@ jobs:
           node-version: ${{ matrix.node }}
           # registry-url: https://registry.npmjs.org/
       - name: Install Dependencies
-        run: pnpm ci # verifies lockfile matches package.json
+        run: pnpm install --frozen-lockfile # verifies lockfile matches package.json
+        shell: bash
       - name: Build
         run: pnpm build
       # https://github.com/cycjimmy/semantic-release-action
