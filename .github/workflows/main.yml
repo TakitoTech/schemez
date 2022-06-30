@@ -51,7 +51,7 @@ jobs:
           file: ./coverage/clover.xml # optional
       - name: Build
         run: pnpm build
-publish-pnpm:
+  publish-pnpm:
     needs: build
     strategy:
       matrix:
