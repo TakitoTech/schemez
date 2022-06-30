@@ -1,8 +1,12 @@
 {
+	"name": "schemez",
 	"version": "0.1.0",
+	"author": "TakitoTech",
 	"license": "MIT",
+	"packageManager": "pnpm@7.3.0",
 	"main": "dist/index.js",
 	"typings": "dist/index.d.ts",
+	"module": "dist/schemez.esm.js",
 	"files": [
 		"dist",
 		"src"
@@ -34,9 +38,6 @@
 		"arrowParens": "always",
 		"useTabs": true
 	},
-	"name": "schemez",
-	"author": "TakitoTech",
-	"module": "dist/schemez.esm.js",
 	"size-limit": [
 		{
 			"path": "dist/schemez.cjs.production.min.js",
