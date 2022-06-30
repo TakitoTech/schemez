@@ -3,29 +3,30 @@ description: "Installs dependencies via pnpm"
 runs:
   using: "composite"
   steps:
-    - name: Use Node.js from .nvmrc
+    - name: Checkout repo
+      uses: actions/checkout@v3
+    - name: Use Node ${{ matrix.node }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node }}
-
+    # - name: Install deps and build (with cache) # replaced with below script
+      # uses: TakitoTech/action-pnpm-install@main
     - name: Install pnpm
       uses: pnpm/action-setup@v2.2.2
       # with:
-      #   version: 7.1.0
-
+      #   version: 7.1.0 # uses version set in package.json > packageManager
     - name: Get pnpm store directory
       id: pnpm-cache
       run: |
         echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
       shell: bash
-
-    - uses: actions/cache@v3
-      name: Setup pnpm cache
+    - name: Setup pnpm cache
+      uses: actions/cache@v3
       with:
         path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
     - name: Install Dependencies
-      run: pnpm install
+      run: pnpm install --frozen-lockfile # verifies lockfile matches package.json
       shell: bash
