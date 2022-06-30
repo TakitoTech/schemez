@@ -20,9 +20,10 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Install deps and build (with cache)
+      # - name: Install deps and build (with cache) # replaced with below script
         # uses: TakitoTech/action-pnpm-install@main
-        - name: Install pnpm
+
+      - name: Install pnpm
         uses: pnpm/action-setup@v2.2.2
         # with:
         #   version: 7.1.0
