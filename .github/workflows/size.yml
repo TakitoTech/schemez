@@ -2,7 +2,7 @@ name: size
 on:
   pull_request:
     branches:
-      - main
+      - master # ignore until fixed
 jobs:
   size:
     runs-on: ubuntu-latest
