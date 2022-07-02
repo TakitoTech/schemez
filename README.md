@@ -207,8 +207,8 @@ Full documentation available [here](https://takitotech.github.io/schemez/)
         <td>{ "type": "object", properties: T, additionalProperties: false, "required": [] } }</td>
     </tr>
 		<tr>
-        <td>s.partialRecursive(): <a href="https://takitotech.github.io/schemez/classes/objectschema.html">ObjectSchema</a></td>
-        <td>Sets object's fields and fields' fields (recursively) as optional; Does NOT set object itself as optional</td>
+        <td>s.partialDeep(): <a href="https://takitotech.github.io/schemez/classes/objectschema.html">ObjectSchema</a></td>
+        <td>Sets object's fields and fields' fields recursively as optional; Does NOT set object itself as optional</td>
 				<td>{ ...? } (aka. optional fields)</td>
         <td>{ "type": "object", properties: T, additionalProperties: false, "required": [] } }</td>
     </tr>
@@ -249,6 +249,6 @@ pnpm test
 
 ## Author
 
-👤 TakitoTech
+👤 TriStarGod
 
-* Github: [@TakitoTech](https://github.com/TakitoTech)
+* Github: [@TriStarGod](https://github.com/TriStarGod)

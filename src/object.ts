@@ -227,19 +227,19 @@ export default class ObjectSchema<
 		});
 	}
 	/**
-	 * Return new ObjectSchema with removed required fields (recursively)
+	 * Return new ObjectSchema with removed required fields recursively
 	 *
 	 * @returns {ObjectSchema}
 	 */
-	partialRecurvise(): ObjectSchema<PartialRecursive<T>, R> {
-		const plain = (function partialRecurvise(schema: any) {
+	partialDeep(): ObjectSchema<PartialRecursive<T>, R> {
+		const plain = (function partialDeep(schema: any) {
 			for (const key in schema.properties || {}) {
 				if (schema.properties[key].type === "object") {
 					schema = {
 						...schema,
 						properties: {
 							...schema.properties,
-							[key]: partialRecurvise({ ...schema.properties[key] }),
+							[key]: partialDeep({ ...schema.properties[key] }),
 						},
 					};
 				}

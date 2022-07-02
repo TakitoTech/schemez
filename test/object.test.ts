@@ -219,13 +219,13 @@ describe("ObjectSchema", () => {
 		expect(Validate(schema, { prop2: {} } as any)[0]).toEqual(false);
 	});
 
-	it("ObjectSchema.prototype.partialRecursive", () => {
+	it("ObjectSchema.prototype.partialDeep", () => {
 		const schema = s
 			.shape({
 				prop1: s.shape({ str: s.string() }),
 				prop2: s.shape({ str: s.string() }).optional(),
 			})
-			.partialRecurvise();
+			.partialDeep();
 		IsTrue<
 			Expect<
 				typeof schema.type,
