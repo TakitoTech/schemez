@@ -1,9 +1,9 @@
 import { O } from "ts-toolbelt";
-import ArraySchema from "./array";
-import BaseSchema from "./base";
-import NumericSchema from "./numeric";
-import ObjectSchema from "./object";
-import StringSchema from "./string";
+import { ArraySchema, ArrayJsonSchema } from "./array";
+import { BaseSchema, BaseJsonSchema } from "./base";
+import { NumericSchema, NumericJsonSchema } from "./numeric";
+import { ObjectSchema, ObjectJsonSchema } from "./object";
+import { StringSchema, StringJsonSchema } from "./string";
 
 export type Class<T = any> = { new (): T; prototype: T };
 
@@ -28,6 +28,13 @@ export type ConvertUndefinedToOptional<T> = Partial<
 export type Schema = BaseSchema | BaseSchema<any, false>;
 
 export { BaseSchema, StringSchema, NumericSchema, ArraySchema, ObjectSchema };
+export {
+	BaseJsonSchema,
+	StringJsonSchema,
+	NumericJsonSchema,
+	ArrayJsonSchema,
+	ObjectJsonSchema,
+};
 
 export class SchemaFactory extends BaseSchema {
 	/**
@@ -148,6 +155,6 @@ export class SchemaFactory extends BaseSchema {
 	}
 }
 
-const S = new SchemaFactory();
+const s = new SchemaFactory();
 
-export default S;
+export default s;

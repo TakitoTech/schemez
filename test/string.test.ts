@@ -1,4 +1,4 @@
-import StringSchema from "../src/string";
+import { StringSchema } from "../src";
 import { Validate } from "./_TestHelper";
 
 describe("StringSchema", () => {

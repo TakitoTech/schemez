@@ -1,4 +1,4 @@
-import BaseSchema, { BaseJsonSchema } from "./base";
+import { BaseSchema, BaseJsonSchema } from "./base";
 
 export interface StringJsonSchema extends BaseJsonSchema {
 	type: "string";
@@ -10,7 +10,7 @@ export interface StringJsonSchema extends BaseJsonSchema {
 	contentEncoding?: string;
 }
 
-export default class StringSchema<
+export class StringSchema<
 	T extends string = string,
 	R extends boolean = true,
 > extends BaseSchema<T, R, Readonly<StringJsonSchema>> {

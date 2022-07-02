@@ -1,4 +1,4 @@
-import NumericSchema from "../src/numeric";
+import { NumericSchema } from "../src";
 import { Validate } from "./_TestHelper";
 
 describe("NumericSchema", () => {

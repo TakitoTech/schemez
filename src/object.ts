@@ -5,8 +5,8 @@ import {
 	Schema,
 	ConvertUndefinedToOptional,
 } from ".";
-import BaseSchema, { BaseJsonSchema } from "./base";
-import StringSchema from "./string";
+import { BaseSchema, BaseJsonSchema } from "./base";
+import { StringSchema } from "./string";
 
 export interface ObjectJsonSchema extends BaseJsonSchema {
 	type: "object";
@@ -20,7 +20,7 @@ export interface ObjectJsonSchema extends BaseJsonSchema {
 	patternProperties?: Record<string, Schema["plain"]>;
 }
 
-export default class ObjectSchema<
+export class ObjectSchema<
 	T extends Record<string, any> = Record<string, unknown>,
 	R extends boolean = true,
 > extends BaseSchema<T, R, Readonly<ObjectJsonSchema>> {

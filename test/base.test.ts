@@ -1,4 +1,4 @@
-import BaseSchema from "../src/base";
+import { BaseSchema } from "../src";
 
 describe("BaseSchema", () => {
 	it("BaseSchema.prototype.description", () => {

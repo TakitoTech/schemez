@@ -1,5 +1,4 @@
-import S from "../src/";
-import ArraySchema from "../src/array";
+import s, { ArraySchema } from "../src";
 import { Validate } from "./_TestHelper";
 
 describe("ArraySchema", () => {
@@ -8,18 +7,18 @@ describe("ArraySchema", () => {
 	it.skip("ArraySchema.prototype.additionalItems", () => {
 		// warning: strict mode: "items" is 2-tuple, but minItems or maxItems/additionalItems are not specified or different at path "#"
 		// warnings are for all ArraySchema.prototype.additionalItems tests
-		const schema = new ArraySchema().items([S.string(), S.number()]);
+		const schema = new ArraySchema().items([s.string(), s.number()]);
 		expect(Validate(schema, ["some", 0, 0])[0]).toEqual(true);
 		expect(Validate(schema.additionalItems(false), ["some", 0, 0])[0]).toEqual(
 			false,
 		);
 		expect(
-			Validate(schema.additionalItems(S.string()), ["some", 0, "any"])[0],
+			Validate(schema.additionalItems(s.string()), ["some", 0, "any"])[0],
 		).toEqual(true);
 	});
 
 	it("ArraySchema.prototype.contains", () => {
-		const schema = new ArraySchema().contains(S.const("some"));
+		const schema = new ArraySchema().contains(s.const("some"));
 		expect(Validate(schema, ["some", 0, 0])[0]).toEqual(true);
 		expect(Validate(schema, ["any", 0, 0])[0]).toEqual(false);
 	});

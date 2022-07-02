@@ -1,4 +1,4 @@
-import BaseSchema, { BaseJsonSchema } from "./base";
+import { BaseSchema, BaseJsonSchema } from "./base";
 
 export interface NumericJsonSchema extends BaseJsonSchema {
 	type: "number" | "integer";
@@ -9,7 +9,7 @@ export interface NumericJsonSchema extends BaseJsonSchema {
 	multipleOf?: number;
 }
 
-export default class NumericSchema<
+export class NumericSchema<
 	T extends number = number,
 	R extends boolean = true,
 > extends BaseSchema<T, R, Readonly<NumericJsonSchema>> {

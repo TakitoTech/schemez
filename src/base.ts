@@ -41,7 +41,7 @@ export interface BaseJsonSchema {
 	custom?: string[];
 }
 
-export default class BaseSchema<
+export class BaseSchema<
 	T = Any,
 	R extends boolean = true,
 	S extends BaseJsonSchema = Readonly<BaseJsonSchema>,

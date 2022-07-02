@@ -1,5 +1,5 @@
 import { Schema } from ".";
-import BaseSchema, { BaseJsonSchema } from "./base";
+import { BaseSchema, BaseJsonSchema } from "./base";
 
 export interface ArrayJsonSchema extends BaseJsonSchema {
 	type: "array";
@@ -11,10 +11,11 @@ export interface ArrayJsonSchema extends BaseJsonSchema {
 	items?: Schema["plain"] | Schema["plain"][];
 }
 
-export default class ArraySchema<
-	T = any,
-	R extends boolean = true,
-> extends BaseSchema<T[], R, Readonly<ArrayJsonSchema>> {
+export class ArraySchema<T = any, R extends boolean = true> extends BaseSchema<
+	T[],
+	R,
+	Readonly<ArrayJsonSchema>
+> {
 	constructor() {
 		super("array");
 	}
