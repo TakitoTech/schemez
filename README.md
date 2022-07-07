@@ -1,13 +1,12 @@
 # schemez
-
 <p>
-  <a href="https://www.npmjs.com/package/jsonschema-definer" target="_blank">
+  <a href="https://www.npmjs.com/package/schemez" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/schemez.svg">
   </a>
   <a href="https://opensource.org/licenses/MIT" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
-  <img alt="Main" src="https://github.com/TakitoTech/schemez/actions/workflows/main.yml/badge.svg" />
+	![Main](https://github.com/TakitoTech/schemez/actions/workflows/main.yml/badge.svg)
   <a href="https://codecov.io/gh/TakitoTech/schemez" target="_blank">
     <img alt="codecov" src="https://codecov.io/gh/TakitoTech/schemez/branch/main/graph/badge.svg" />
   </a>
