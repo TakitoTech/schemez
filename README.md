@@ -1,6 +1,17 @@
 # schemez
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<p>
+  <a href="https://www.npmjs.com/package/jsonschema-definer" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/schemez.svg">
+  </a>
+  <a href="https://opensource.org/licenses/MIT" target="_blank">
+    <img alt="License: MIT" https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <img alt="Release" src="https://github.com/TakitoTech/schemez/workflows/Release/badge.svg" />
+  <a href="https://codecov.io/gh/TakitoTech/schemez" target="_blank">
+    <img alt="codecov" src="https://codecov.io/gh/TakitoTech/schemez/branch/main/graph/badge.svg" />
+  </a>
+</p>
 
 This library allows users to create JSON schemas and respective TypeScript types in a manner consistent with TypeScript coding. Not only does this reduce code duplication, it makes it simpler for TypeScript developers to learn it.
 
