@@ -1,4 +1,4 @@
-name: main.yml - lint, test, build, and publish
+name: CI
 on: [push]
 jobs:
   build:
@@ -6,7 +6,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ['14']
+        node: ['14','16','18']
         # node: ['10.x', '12.x', '14.x']
         os: [ubuntu-latest]
         # os: [ubuntu-latest, windows-latest, macOS-latest]
@@ -21,8 +21,8 @@ jobs:
         # uses: TakitoTech/action-pnpm-install@main
       - name: Install pnpm
         uses: pnpm/action-setup@v2.2.2
-        # with:
-        #   version: 7.1.0 # uses version set in package.json > packageManager
+        with:
+          version: latest # 7.1.0 # uses version set in package.json > packageManager
       - name: Get pnpm store directory
         id: pnpm-cache
         run: |
