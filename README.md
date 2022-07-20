@@ -6,7 +6,7 @@
   <a href="https://opensource.org/licenses/MIT" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
-  <img alt="Main" src="https://github.com/TakitoTech/schemez/actions/workflows/main.yml/badge.svg" />
+  <img alt="Main" src="https://github.com/TakitoTech/schemez/actions/workflows/ci.yml/badge.svg" />
   <a href="https://codecov.io/gh/TakitoTech/schemez" target="_blank">
     <img alt="codecov" src="https://codecov.io/gh/TakitoTech/schemez/branch/main/graph/badge.svg" />
   </a>
