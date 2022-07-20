@@ -9,6 +9,7 @@ specifiers:
   ajv-formats: 2.1.1
   eslint: 8.20.0
   eslint-config-prettier: 8.5.0
+  eslint-config-takitotech: ^1.0.0
   eslint-plugin-import: 2.26.0
   eslint-plugin-prettier: 4.2.1
   husky: 8.0.1
@@ -31,6 +32,7 @@ devDependencies:
   ajv-formats: 2.1.1
   eslint: 8.20.0
   eslint-config-prettier: 8.5.0_eslint@8.20.0
+  eslint-config-takitotech: 1.0.0
   eslint-plugin-import: 2.26.0_y5cwkwncsnk6w3wfynadgn7abe
   eslint-plugin-prettier: 4.2.1_g4fztgbwjyq2fvmcscny2sj6fy
   husky: 8.0.1
@@ -3370,6 +3372,10 @@ packages:
       eslint-plugin-react: 7.30.1_eslint@6.8.0
       eslint-plugin-react-hooks: 2.5.1_eslint@6.8.0
       typescript: 3.9.10
+    dev: true
+
+  /eslint-config-takitotech/1.0.0:
+    resolution: {integrity: sha512-Fxu/ydMZ5TG7Pws6Clxe0qdE8VPqSX+dQqTHPeMm95z4eZ7m7EkEFAPMVcWz7DdD9N9RuerCWNuU+1pnYeviyQ==}
     dev: true
 
   /eslint-import-resolver-node/0.3.6:

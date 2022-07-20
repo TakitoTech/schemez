@@ -71,6 +71,72 @@
 			}
 		}
 	},
+	"eslint": {
+		"root": true,
+		"parser": "@typescript-eslint/parser",
+		"parserOptions": {
+			"ecmaVersion": 2018
+		},
+		"env": {
+			"browser": true,
+			"es6": true,
+			"node": true
+		},
+		"extends": [
+			"eslint:recommended",
+			"plugin:@typescript-eslint/recommended",
+			"plugin:import/errors",
+			"plugin:import/warnings",
+			"plugin:import/typescript",
+			"plugin:prettier/recommended"
+		],
+		"rules": {
+			"import/no-named-as-default": 0,
+			"import/order": [
+				"error",
+				{
+					"groups": [
+						"builtin",
+						"external",
+						"internal"
+					],
+					"pathGroups": [
+						{
+							"pattern": "react",
+							"group": "external",
+							"position": "before"
+						}
+					],
+					"pathGroupsExcludedImportTypes": [
+						"react"
+					],
+					"newlines-between": "never",
+					"alphabetize": {
+						"order": "asc",
+						"caseInsensitive": true
+					}
+				}
+			],
+			"import/prefer-default-export": 0,
+			"@typescript-eslint/ban-ts-comment": [
+				2,
+				{
+					"ts-expect-error": "allow-with-description",
+					"minimumDescriptionLength": 2
+				}
+			],
+			"@typescript-eslint/no-unused-vars": [
+				"error",
+				{
+					"varsIgnorePattern": "^_",
+					"argsIgnorePattern": "^_"
+				}
+			],
+			"@typescript-eslint/no-non-null-assertion": 0,
+			"@typescript-eslint/no-explicit-any": 0,
+			"@typescript-eslint/explicit-module-boundary-types": 0
+		}
+	},
 	"devDependencies": {
 		"@size-limit/preset-small-lib": "7.0.8",
 		"@types/jest": "28.1.6",
@@ -80,6 +146,7 @@
 		"ajv-formats": "2.1.1",
 		"eslint": "8.20.0",
 		"eslint-config-prettier": "8.5.0",
+		"eslint-config-takitotech": "^1.0.0",
 		"eslint-plugin-import": "2.26.0",
 		"eslint-plugin-prettier": "4.2.1",
 		"husky": "8.0.1",
