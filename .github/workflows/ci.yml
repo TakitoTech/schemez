@@ -44,7 +44,7 @@ jobs:
         run: pnpm build
   release:
     name: Release as needed
-		needs: [build]
+    needs: [build]
     strategy:
       matrix:
         node: # ****run only one version****
