@@ -81,7 +81,7 @@
 		"ajv-formats": "2.1.1",
 		"eslint": "8.20.0",
 		"eslint-config-prettier": "8.5.0",
-		"eslint-config-takitotech": "^1.0.2",
+		"eslint-config-takitotech": "1.0.2",
 		"eslint-plugin-import": "2.26.0",
 		"eslint-plugin-prettier": "4.2.1",
 		"husky": "8.0.1",
