@@ -35,15 +35,10 @@ jobs:
         run: pnpm test -- --ci --coverage --maxWorkers=2
         env:
           CI: true
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          file: ./coverage/clover.xml # optional
       - name: Build
         run: pnpm build
   release:
-    name: Release as needed
+    name: Upload coverage report and release package as needed
     needs: [build]
     strategy:
       matrix:
@@ -71,6 +66,11 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile # verifies lockfile matches package.json
         shell: bash
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          file: ./coverage/clover.xml # optional
       - name: Build
         run: pnpm build
       # https://github.com/cycjimmy/semantic-release-action
