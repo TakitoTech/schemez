@@ -6,6 +6,10 @@ export interface StringJsonSchema extends BaseJsonSchema {
 	maxLength?: number;
 	pattern?: string;
 	format?: string;
+	formatMinimum?: string;
+	formatMaximum?: string;
+	formatExclusiveMinimum?: string;
+	formatExclusiveMaximum?: string;
 	contentMediaType?: string;
 	contentEncoding?: string;
 }
@@ -52,6 +56,38 @@ export class StringSchema<
 	 */
 	format(format: string) {
 		return this.copyWith({ plain: { format } });
+	}
+	/**
+	 * A string value that is the inclusive Minimum value (ie x >= formatMinimum)
+	 * @param {string} formatMinimum
+	 * @returns {StringSchema}
+	 */
+	formatMinimum(formatMinimum: string) {
+		return this.copyWith({ plain: { formatMinimum } });
+	}
+	/**
+	 * A string value that is the inclusive Maximum value (ie x <= formatMaximum)
+	 * @param {string} formatMaximum
+	 * @returns {StringSchema}
+	 */
+	formatMaximum(formatMaximum: string) {
+		return this.copyWith({ plain: { formatMaximum } });
+	}
+	/**
+	 * A string value that is the exclusive Minimum value (ie x > formatExclusiveMinimum)
+	 * @param {string} formatExclusiveMinimum
+	 * @returns {StringSchema}
+	 */
+	formatExclusiveMinimum(formatExclusiveMinimum: string) {
+		return this.copyWith({ plain: { formatExclusiveMinimum } });
+	}
+	/**
+	 * A string value that is the exclusive Maximum value (ie x < formatExclusiveMaximum)
+	 * @param {string} formatExclusiveMaximum
+	 * @returns {StringSchema}
+	 */
+	formatExclusiveMaximum(formatExclusiveMaximum: string) {
+		return this.copyWith({ plain: { formatExclusiveMaximum } });
 	}
 
 	/**

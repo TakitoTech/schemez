@@ -24,6 +24,42 @@ describe("StringSchema", () => {
 		expect(Validate(schema, "some")[0]).toEqual(false);
 	});
 
+	it("StringSchema.prototype.formatMinimum", () => {
+		const schema = new StringSchema()
+			.format("date-time")
+			.formatMinimum("2020-01-02T00:00:00.000Z");
+		expect(Validate(schema, "2020-01-03T00:00:00.000Z")[0]).toEqual(true);
+		expect(Validate(schema, "2020-01-02T00:00:00.000Z")[0]).toEqual(true);
+		expect(Validate(schema, "2020-01-01T00:00:00.000Z")[0]).toEqual(false);
+	});
+
+	it("StringSchema.prototype.formatMaximum", () => {
+		const schema = new StringSchema()
+			.format("date-time")
+			.formatMaximum("2020-01-02T00:00:00.000Z");
+		expect(Validate(schema, "2020-01-03T00:00:00.000Z")[0]).toEqual(false);
+		expect(Validate(schema, "2020-01-02T00:00:00.000Z")[0]).toEqual(true);
+		expect(Validate(schema, "2020-01-01T00:00:00.000Z")[0]).toEqual(true);
+	});
+
+	it("StringSchema.prototype.formatExclusiveMinimum", () => {
+		const schema = new StringSchema()
+			.format("date-time")
+			.formatExclusiveMinimum("2020-01-02T00:00:00.000Z");
+		expect(Validate(schema, "2020-01-03T00:00:00.000Z")[0]).toEqual(true);
+		expect(Validate(schema, "2020-01-02T00:00:00.000Z")[0]).toEqual(false);
+		expect(Validate(schema, "2020-01-01T00:00:00.000Z")[0]).toEqual(false);
+	});
+
+	it("StringSchema.prototype.formatExclusiveMaximum", () => {
+		const schema = new StringSchema()
+			.format("date-time")
+			.formatExclusiveMaximum("2020-01-02T00:00:00.000Z");
+		expect(Validate(schema, "2020-01-03T00:00:00.000Z")[0]).toEqual(false);
+		expect(Validate(schema, "2020-01-02T00:00:00.000Z")[0]).toEqual(false);
+		expect(Validate(schema, "2020-01-01T00:00:00.000Z")[0]).toEqual(true);
+	});
+
 	it("StringSchema.prototype.minLength", () => {
 		const schema = new StringSchema().minLength(2);
 		expect(Validate(schema, "some")[0]).toEqual(true);
