@@ -92,7 +92,7 @@ console.log(BotUserSchema.valueOf())
 ```
 ## 👀 Comparison against similar libraries (fluent-json-schema vs schemez vs typebox)
 
-[codesandox sample](https://codesandbox.io/s/fluent-json-schema-vs-schemez-vs-typebox-645s2j?file=/src/index.ts)
+[Comparison](https://stackblitz.com/edit/typescript-5bksyx?file=index.ts)
 ## ⭐️ Show your support
 
 Give a ⭐️ if this project helped you!
