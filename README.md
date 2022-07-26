@@ -41,7 +41,7 @@ const UserSchema = s.shape({
   birthday: s.instanceOf(Date)
 });
 
-// Now lets get interface of User from schema
+// Now lets get interface from schema
 type User = typeof UserSchema.type
 /*
   type User = {
@@ -56,7 +56,43 @@ type User = typeof UserSchema.type
 // Get plain JSON Schema using .valueOf()
 console.log(UserSchema.valueOf())
 
+const AdminUserSchema = UserSchema.andShape({
+	company: s.string().minLength(3),
+});
+
+// Now lets get interface from schema
+type AdminUser = typeof AdminUserSchema.type
+/*
+  type AdminUser = {
+    name: string,
+    email?: string | undefined,
+    password: string,
+    role: 'client' | 'suplier',
+    birthday: Date,
+  }
+*/
+
+// Get plain JSON Schema using .valueOf()
+console.log(AdminUserSchema.valueOf())
+
+const BotUserSchema = UserSchema.pick("name", "role");
+
+// Now lets get interface from schema
+type BotUser = typeof BotUserSchema.type
+/*
+  type BotUser = {
+    name: string,
+    role: 'client' | 'suplier',
+  }
+*/
+
+// Get plain JSON Schema using .valueOf()
+console.log(BotUserSchema.valueOf())
+
 ```
+## 👀 Comparison against similar libraries (fluent-json-schema vs schemez vs typebox)
+
+[codesandox sample](https://codesandbox.io/s/fluent-json-schema-vs-schemez-vs-typebox-645s2j?file=/src/index.ts)
 ## ⭐️ Show your support
 
 Give a ⭐️ if this project helped you!
