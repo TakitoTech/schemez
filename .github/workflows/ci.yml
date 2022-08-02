@@ -8,7 +8,7 @@ jobs:
         node: # running more than one node causes semantic release tags to be incorrectly created. Fix when you have time!
           # - 14
           - 16
-          - 18
+          # - 18
         os:
           # - macOS-latest
           # - windows-latest
