@@ -37,7 +37,7 @@ const UserSchema = s.shape({
   name: s.string(),
   email: s.string().format('email').optional(),
   password: s.string().minLength(8),
-  role: s.enum('client', 'suplier'),
+  role: s.enum('client', 'supplier'),
   birthday: s.instanceOf(Date)
 });
 
@@ -48,7 +48,7 @@ type User = typeof UserSchema.type
     name: string,
     email?: string | undefined,
     password: string,
-    role: 'client' | 'suplier',
+    role: 'client' | 'supplier',
     birthday: Date
   }
 */
@@ -67,7 +67,7 @@ type AdminUser = typeof AdminUserSchema.type
     name: string,
     email?: string | undefined,
     password: string,
-    role: 'client' | 'suplier',
+    role: 'client' | 'supplier',
     birthday: Date,
   }
 */
@@ -82,7 +82,7 @@ type BotUser = typeof BotUserSchema.type
 /*
   type BotUser = {
     name: string,
-    role: 'client' | 'suplier',
+    role: 'client' | 'supplier',
   }
 */
 
@@ -90,9 +90,24 @@ type BotUser = typeof BotUserSchema.type
 console.log(BotUserSchema.valueOf())
 
 ```
+
+## 👍 Reasons for using schemez
+
+- Sensible defaults (ie properties are required by default)
+- Built in TypeScript and TypeScript Support
+- Reduced code duplication with TypeScript-like utilities (ie pick, omit, etc)
+- Less code overall
+- Can be easily extended to include UI via JSON Schema prop "description"
+
+## 👎 Reasons against using schemez
+
+- New
+- Existing libraries with similar features (find more below)
+
 ## 👀 Comparison against similar libraries (fluent-json-schema vs schemez vs typebox)
 
 [Comparison](https://stackblitz.com/edit/typescript-5bksyx?file=index.ts)
+
 ## ⭐️ Show your support
 
 Give a ⭐️ if this project helped you!
@@ -260,10 +275,10 @@ Full documentation available [here](https://takitotech.github.io/schemez/)
     </tr>
 </table>
 
-## Release setup
+## 🏭 Release setup
 Uses semantic-release to manage releases.
 
-### Commit message format
+### 🔐 Commit message format
 
 **semantic-release** uses the commit messages to determine the consumer impact of changes in the codebase.
 Following formalized conventions for commit messages, **semantic-release** automatically determines the next [semantic version](https://semver.org) number, generates a changelog and publishes the release.
@@ -287,13 +302,13 @@ Ref: https://github.com/semantic-release/semantic-release#commit-message-format
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/TakitoTech/schemez/issues).
 
-### Run tests
+### 🧪 Run tests
 
 ```sh
 pnpm test
 ``` 
 
-## Author
+## ✍️ Author
 
 👤 TriStarGod
 
