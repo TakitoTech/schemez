@@ -79,7 +79,7 @@
 		"@typescript-eslint/parser": "5.35.1",
 		"ajv": "8.11.0",
 		"ajv-formats": "2.1.1",
-		"eslint": "8.22.0",
+		"eslint": "8.23.0",
 		"eslint-config-prettier": "8.5.0",
 		"eslint-config-takitotech": "1.0.2",
 		"eslint-plugin-import": "2.26.0",
