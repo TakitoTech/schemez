@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@size-limit/preset-small-lib': 8.0.1
-  '@types/jest': 29.0.0
+  '@types/jest': 29.0.1
   '@typescript-eslint/eslint-plugin': 5.36.2
   '@typescript-eslint/parser': 5.36.2
   ajv: 8.11.0
@@ -25,7 +25,7 @@ dependencies:
 
 devDependencies:
   '@size-limit/preset-small-lib': 8.0.1_size-limit@8.0.1
-  '@types/jest': 29.0.0
+  '@types/jest': 29.0.1
   '@typescript-eslint/eslint-plugin': 5.36.2_2l2r3i3lm6jysqd4ac3ql4n2mm
   '@typescript-eslint/parser': 5.36.2_itqs5654cmlnjraw6gjzqacppi
   ajv: 8.11.0
@@ -1774,8 +1774,8 @@ packages:
       pretty-format: 25.5.0
     dev: true
 
-  /@types/jest/29.0.0:
-    resolution: {integrity: sha512-X6Zjz3WO4cT39Gkl0lZ2baFRaEMqJl5NC1OjElkwtNzAlbkr2K/WJXkBkH5VP0zx4Hgsd2TZYdOEfvp2Dxia+Q==}
+  /@types/jest/29.0.1:
+    resolution: {integrity: sha512-CAZrjLRZs4xEdIrfrdV74xK1Vo/BKQZwUcjJv3gp6gMeV3BsVxMnXTcgtYOKyphT4DPPo7jxVEVhuwJTQn3oPQ==}
     dependencies:
       expect: 29.0.1
       pretty-format: 29.0.1
