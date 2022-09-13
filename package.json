@@ -74,7 +74,7 @@
 	},
 	"devDependencies": {
 		"@size-limit/preset-small-lib": "8.0.1",
-		"@types/jest": "29.0.1",
+		"@types/jest": "29.0.2",
 		"@typescript-eslint/eslint-plugin": "5.37.0",
 		"@typescript-eslint/parser": "5.37.0",
 		"ajv": "8.11.0",
