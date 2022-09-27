@@ -89,7 +89,7 @@
 		"size-limit": "8.0.1",
 		"tsdx": "0.14.1",
 		"tslib": "2.4.0",
-		"typescript": "4.8.3"
+		"typescript": "4.8.4"
 	},
 	"dependencies": {
 		"ts-toolbelt": "9.6.0"
