@@ -1,5 +1,5 @@
-import s, { BaseSchema } from "../src";
 import { Expect, IsTrue, Validate } from "./_TestHelper";
+import s, { BaseSchema } from "../src";
 
 describe("root instance", () => {
 	it("Schema.string()", () => {

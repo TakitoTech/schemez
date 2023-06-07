@@ -1,5 +1,5 @@
-import s from "../src";
 import { Expect, IsTrue, Validate } from "./_TestHelper";
+import s from "../src";
 
 describe("ObjectSchema", () => {
 	it("ObjectSchema.prototype.set", () => {

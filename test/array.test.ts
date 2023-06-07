@@ -1,5 +1,5 @@
-import s, { ArraySchema } from "../src";
 import { Validate } from "./_TestHelper";
+import s, { ArraySchema } from "../src";
 
 describe("ArraySchema", () => {
 	it.todo("ArraySchema.prototype.items()");

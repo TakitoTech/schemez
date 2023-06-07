@@ -1,5 +1,5 @@
-import { StringSchema } from "../src";
 import { Validate } from "./_TestHelper";
+import { StringSchema } from "../src";
 
 describe("StringSchema", () => {
 	it("StringSchema.prototype.optional", () => {
