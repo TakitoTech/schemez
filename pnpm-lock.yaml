@@ -14,8 +14,8 @@ devDependencies:
     specifier: 8.2.6
     version: 8.2.6(size-limit@8.2.6)
   '@types/jest':
-    specifier: 29.5.2
-    version: 29.5.2
+    specifier: 29.5.3
+    version: 29.5.3
   '@typescript-eslint/eslint-plugin':
     specifier: 5.61.0
     version: 5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.1.6)
@@ -2190,8 +2190,8 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest@29.5.2:
-    resolution: {integrity: sha512-mSoZVJF5YzGVCk+FsDxzDuH7s+SCkzrgKZzf0Z0T2WudhBUPoF6ktoTPC4R0ZoCPCV5xUvuU6ias5NvxcBcMMg==}
+  /@types/jest@29.5.3:
+    resolution: {integrity: sha512-1Nq7YrO/vJE/FYnqYyw0FS8LdrjExSgIiHyKg7xPpn+yi8Q4huZryKnkJatN1ZRH89Kw2v33/8ZMB7DuZeSLlA==}
     dependencies:
       expect: 29.5.0
       pretty-format: 29.5.0
@@ -3329,7 +3329,7 @@ packages:
       '@rollup/plugin-node-resolve': 15.1.0(rollup@3.24.0)
       '@rollup/plugin-replace': 5.0.2(rollup@3.24.0)
       '@rollup/plugin-terser': 0.4.3(rollup@3.24.0)
-      '@types/jest': 29.5.2
+      '@types/jest': 29.5.3
       '@typescript-eslint/eslint-plugin': 5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)(typescript@5.1.6)
       '@typescript-eslint/parser': 5.61.0(eslint@8.44.0)(typescript@5.1.6)
       ansi-escapes: 4.3.2
