@@ -81,7 +81,7 @@
 		"ajv-formats": "2.1.1",
 		"dts-cli": "^2.0.3",
 		"eslint": "8.45.0",
-		"eslint-config-prettier": "8.8.0",
+		"eslint-config-prettier": "8.9.0",
 		"eslint-config-takitotech": "1.0.2",
 		"eslint-plugin-import": "2.27.5",
 		"eslint-plugin-prettier": "4.2.1",
