@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"author": "TakitoTech",
 	"license": "MIT",
-	"packageManager": "pnpm@8.7.4",
+	"packageManager": "pnpm@8.7.5",
 	"main": "dist/index.js",
 	"typings": "dist/index.d.ts",
 	"module": "dist/schemez.esm.js",
