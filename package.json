@@ -84,7 +84,7 @@
 		"eslint-config-prettier": "8.10.0",
 		"eslint-config-takitotech": "1.0.2",
 		"eslint-plugin-import": "2.29.1",
-		"eslint-plugin-prettier": "4.2.1",
+		"eslint-plugin-prettier": "5.2.1",
 		"husky": "8.0.3",
 		"prettier": "2.8.8",
 		"size-limit": "8.2.6",
