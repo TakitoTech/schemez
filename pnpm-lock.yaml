@@ -44,8 +44,8 @@ devDependencies:
     specifier: 2.29.1
     version: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint@8.56.0)
   eslint-plugin-prettier:
-    specifier: 4.2.1
-    version: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.56.0)(prettier@2.8.8)
+    specifier: 5.2.1
+    version: 5.2.1(eslint-config-prettier@8.10.0)(eslint@8.56.0)(prettier@2.8.8)
   husky:
     specifier: 8.0.3
     version: 8.0.3
@@ -1946,6 +1946,11 @@ packages:
       fastq: 1.15.0
     dev: true
 
+  /@pkgr/core@0.1.1:
+    resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
+    engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+    dev: true
+
   /@rollup/plugin-babel@6.0.3(@babel/core@7.22.1)(rollup@3.24.0):
     resolution: {integrity: sha512-fKImZKppa1A/gX73eg4JGo+8kQr/q1HBQaCGKECZ0v4YBBv3lFqi14+7xyApECzvkLTHCifx+7ntcrvtBIRcpg==}
     engines: {node: '>=14.0.0'}
@@ -3795,6 +3800,27 @@ packages:
       eslint-config-prettier: 8.10.0(eslint@8.56.0)
       prettier: 2.8.8
       prettier-linter-helpers: 1.0.0
+    dev: true
+
+  /eslint-plugin-prettier@5.2.1(eslint-config-prettier@8.10.0)(eslint@8.56.0)(prettier@2.8.8):
+    resolution: {integrity: sha512-gH3iR3g4JfF+yYPaJYkN7jEl9QbweL/YfkoRlNnuIEHEz1vHVlCmWOS+eGGiRuzHQXdJFCOTxRgvju9b8VUmrw==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      '@types/eslint': '>=8.0.0'
+      eslint: '>=8.0.0'
+      eslint-config-prettier: '*'
+      prettier: '>=3.0.0'
+    peerDependenciesMeta:
+      '@types/eslint':
+        optional: true
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint: 8.56.0
+      eslint-config-prettier: 8.10.0(eslint@8.56.0)
+      prettier: 2.8.8
+      prettier-linter-helpers: 1.0.0
+      synckit: 0.9.1
     dev: true
 
   /eslint-plugin-react-hooks@4.6.0(eslint@8.56.0):
@@ -6539,6 +6565,14 @@ packages:
 
   /symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
+    dev: true
+
+  /synckit@0.9.1:
+    resolution: {integrity: sha512-7gr8p9TQP6RAHusBOSLs46F4564ZrjV8xFmw5zCmgmhGUcw2hxsShhJ6CEiHQMgPDwAQ1fWHPM0ypc4RMAig4A==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    dependencies:
+      '@pkgr/core': 0.1.1
+      tslib: 2.6.2
     dev: true
 
   /terser@5.17.7:
