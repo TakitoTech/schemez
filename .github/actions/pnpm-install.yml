@@ -12,7 +12,7 @@ runs:
     # - name: Install deps and build (with cache) # replaced with below script
       # uses: TakitoTech/action-pnpm-install@main
     - name: Install pnpm
-      uses: pnpm/action-setup@v2.2.2
+      uses: pnpm/action-setup@v2.4.1
       # with:
       #   version: 7.1.0 # uses version set in package.json > packageManager
     - name: Get pnpm store directory
