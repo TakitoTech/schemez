@@ -75,7 +75,7 @@ jobs:
         run: pnpm build
       # https://github.com/cycjimmy/semantic-release-action
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v3
+        uses: cycjimmy/semantic-release-action@v6.0.0
         id: semantic
         with:
           # Recommended to specify specifying version range to reduce version errors
